@@ -4757,6 +4757,10 @@
         "category": "Error",
         "code": 6238
     },
+    "Include default type roots when 'typeRoots' is configured": {
+        "category": "Message",
+        "code": 6239
+    },
 
     "Projects to reference": {
         "category": "Message",

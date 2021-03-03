@@ -2534,6 +2534,7 @@ declare namespace ts.server.protocol {
         emitDecoratorMetadata?: boolean;
         experimentalDecorators?: boolean;
         forceConsistentCasingInFileNames?: boolean;
+        includeDefaultTypeRoots?: boolean;
         importHelpers?: boolean;
         inlineSourceMap?: boolean;
         inlineSources?: boolean;

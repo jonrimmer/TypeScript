@@ -415,6 +415,10 @@ var x = 0;`, {
             options: { compilerOptions: { typeRoots: ["./folder"] }, fileName: "input.js", reportDiagnostics: true }
         });
 
+        transpilesCorrectly("Supports setting 'includeDefaultTypeRoots'", "x;", {
+            options: { compilerOptions: { includeDefaultTypeRoots: true }, fileName: "input.js", reportDiagnostics: true }
+        });
+
         transpilesCorrectly("Supports setting 'incremental'", "x;", {
             options: { compilerOptions: { incremental: true }, fileName: "input.js", reportDiagnostics: true }
         });

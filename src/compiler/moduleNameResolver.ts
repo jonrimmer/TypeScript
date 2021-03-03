@@ -237,21 +237,31 @@ namespace ts {
     }
 
     export function getEffectiveTypeRoots(options: CompilerOptions, host: GetEffectiveTypeRootsHost): string[] | undefined {
+        let result: string[] | undefined;
+
         if (options.typeRoots) {
-            return options.typeRoots;
+            result = options.typeRoots;
         }
 
-        let currentDirectory: string | undefined;
-        if (options.configFilePath) {
-            currentDirectory = getDirectoryPath(options.configFilePath);
-        }
-        else if (host.getCurrentDirectory) {
-            currentDirectory = host.getCurrentDirectory();
+        if (options.includeDefaultTypeRoots || !options.typeRoots) {
+            let currentDirectory: string | undefined;
+            if (options.configFilePath) {
+                currentDirectory = getDirectoryPath(options.configFilePath);
+            }
+            else if (host.getCurrentDirectory) {
+                currentDirectory = host.getCurrentDirectory();
+            }
+
+            if (currentDirectory !== undefined) {
+                const defaultRoots = getDefaultTypeRoots(currentDirectory, host);
+
+                if (defaultRoots) {
+                    result = result ? result.concat(defaultRoots) : defaultRoots;
+                }
+            }
         }
 
-        if (currentDirectory !== undefined) {
-            return getDefaultTypeRoots(currentDirectory, host);
-        }
+        return result;
     }
 
     /**

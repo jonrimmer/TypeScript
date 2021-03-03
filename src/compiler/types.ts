@@ -5852,6 +5852,7 @@ namespace ts {
         /*@internal*/generateCpuProfile?: string;
         /*@internal*/generateTrace?: string;
         /*@internal*/help?: boolean;
+        includeDefaultTypeRoots?: boolean;
         importHelpers?: boolean;
         importsNotUsedAsValues?: ImportsNotUsedAsValues;
         /*@internal*/init?: boolean;

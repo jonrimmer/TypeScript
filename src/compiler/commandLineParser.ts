@@ -779,6 +779,13 @@ namespace ts {
             category: Diagnostics.Module_Resolution_Options,
             description: Diagnostics.Allow_accessing_UMD_globals_from_modules,
         },
+        {
+            name: "includeDefaultTypeRoots",
+            type: "boolean",
+            affectsModuleResolution: true,
+            category: Diagnostics.Module_Resolution_Options,
+            description: Diagnostics.Include_default_type_roots_when_typeRoots_is_configured,
+        },
 
         // Source Maps
         {

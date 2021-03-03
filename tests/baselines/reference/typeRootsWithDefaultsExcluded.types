@@ -1,0 +1,25 @@
+=== /foo/bar/a.ts ===
+import { x } from "xyz";
+>x : any
+
+import { y } from "pdq";
+>y : any
+
+import { z } from "abc";
+>z : number
+
+x + y + z;
+>x + y + z : any
+>x + y : any
+>x : any
+>y : any
+>z : number
+
+=== /foo/bar/types/sneezy/index.d.ts ===
+declare module "abc" {
+>"abc" : typeof import("abc")
+
+    export const z: number;
+>z : number
+}
+
